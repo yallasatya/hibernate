@@ -1,0 +1,71 @@
+package mobilePurchaseSystem.entity;
+import java.util.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+//annotation to create table
+@Entity  
+//annotation to give table name
+@Table(name="mobiles")
+public class Mobiles {
+	//annotation for primary key
+		@Id
+		//annotation to set column name
+		@Column(name = "mobileid")
+		private int MOBILE_ID;
+		private String NAME;
+		private double MobilePrice;
+		private int quantity;
+		
+		@OneToMany(mappedBy = "mobile")
+	    private List<PurchaseDetails> purchaseDetails;
+
+		public int getMOBILE_ID() {
+			return MOBILE_ID;
+		}
+
+		public void setMOBILE_ID(int mOBILE_ID) {
+			MOBILE_ID = mOBILE_ID;
+		}
+
+		public String getNAME() {
+			return NAME;
+		}
+
+		public void setNAME(String nAME) {
+			NAME = nAME;
+		}
+
+		public double getMobilePrice() {
+			return MobilePrice;
+		}
+
+		public void setMobilePrice(double mobilePrice) {
+			MobilePrice = mobilePrice;
+		}
+
+		public int getQuantity() {
+			return quantity;
+		}
+
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+
+		@Override
+		public String toString() {
+			return "Mobiles [MOBILE_ID=" + MOBILE_ID + ", NAME=" + NAME + ", MobilePrice=" + MobilePrice + ", quantity="
+					+ quantity + "]";
+		}
+
+		public String getMobile_Price() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+
+}
